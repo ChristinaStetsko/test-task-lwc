@@ -1,0 +1,19 @@
+<template>
+    <lightning-card class="account-tile">
+        <div onclick={selectAccount}>
+            <div style={backgroundStyle} class="tile"></div>
+            <div class="lower-third">
+                <img alt="Account img" class="account-silhouette" />
+                <div class="slds-text-body_small">Name: {account.Name}</div>
+                <div class="slds-text-body_small">Owner: {account.Owner.Name}</div>
+                <div class="slds-text-body_small">
+                    Budget:
+                    <lightning-formatted-number value={account.Budget__c}></lightning-formatted-number>
+                </div>
+                <div class="slds-text-body_small">Number of Employees:
+                    {account.Number_of_Employees__c}</div>
+                <div class="slds-text-body_small">Type: {account.Type}</div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

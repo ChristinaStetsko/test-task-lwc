@@ -1,0 +1,19 @@
+<template>
+	<div onclick={selectAccount} class={accounttileClass}></div>
+	<lightning-card class="account-tile">
+		<div class="slds-var-p-horizontal_small">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<img alt="Acc. img" class="account-silhouette"/>
+				</div>
+				<div class="slds-media__body">
+					<p class="slds-var-m-bottom_xx-small">{account.Name}</p>
+					<p class="slds-var-m-bottom_xx-small">{account.Owner.Name}</p>
+					<p class="slds-var-m-bottom_xx-small">{account.Budget__c}</p>
+					<p class="slds-var-m-bottom_xx-small">{account.Number_of_Employees__c}</p>
+					<p class="slds-var-m-bottom_xx-small">{account.Type}</p>
+				</div>
+			</div>
+		</div>
+	</lightning-card>
+</template>

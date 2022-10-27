@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Details" icon-name="standard:account">
+
+        <lightning-button slot="actions" label="Full Details" onclick={navigateToRecord}>
+        </lightning-button>
+
+        <lightning-record-view-form record-id={accountId} density="compact" object-api-name="Account">
+            <lightning-output-field field-name="Name" class="slds-form-element_1-col">
+            </lightning-output-field>
+            <lightning-output-field field-name="Budget__c" class="slds-form-element_1-col">
+            </lightning-output-field>
+            <lightning-output-field field-name="Type" class="slds-form-element_1-col">
+            </lightning-output-field>
+            <lightning-output-field field-name="Number_of_Employees__c" class="slds-form-element_1-col">
+            </lightning-output-field>
+        </lightning-record-view-form>
+
+    </lightning-card>
+</template>
