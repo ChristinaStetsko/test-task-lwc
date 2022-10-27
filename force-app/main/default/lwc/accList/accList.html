@@ -1,0 +1,56 @@
+<template>
+	<lightning-card title="Find Accounts">
+		<div class="slds-card__body slds-card__body_inner">
+			<!-- Start account list -->
+			<template if:true={accounts.data}>
+				<div class="slds-scrollable_y">
+					<template if:true={picklistValues.data}>
+						<div class="slds-var-m-around_medium">
+							<template for:each={picklistValues.data.values} for:item="item">
+								<lightning-input
+                        key={item.value}
+                        label={item.label}
+                        data-value={item.value}
+                        type="checkbox"
+                    >
+                    </lightning-input>git commit
+							</template>
+						</div>
+					</template>
+					<!-- <lightning-input type="search" 
+						onchange={handleSearchTermChange} 
+						variant="label-hidden"
+						class="slds-var-m-bottom_small" 
+						label="Search" 
+						placeholder="Search for accounts"
+						value={searchTerm}>
+					</lightning-input> -->
+
+					<lightning-layout horizontal-align="center" multiple-rows>
+						<template for:each={accounts.data} for:item="account">
+							<lightning-layout-item key={account.Id} padding="around-small" size="12"
+								small-device-size="6" medium-device-size="4" large-device-size="3">
+								
+								<c-acc-tile account={account} selected-account-id={selectedAccountId}
+									onaccountselect={updateSelectedTile}></c-acc-tile>
+
+							</lightning-layout-item>
+						</template>
+					</lightning-layout>
+					<!-- No accounts found -->
+					<template if:false={hasResults}>
+						<div class="slds-align_absolute-center slds-var-m-vertical_small">
+							We did't find results
+						</div>
+					</template>
+				</div>
+			</template>
+			<!-- End account list -->
+			<template if:true={accounts.error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the account list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

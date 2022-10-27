@@ -1,0 +1,43 @@
+<template>
+	<lightning-card >
+		<div class="slds-card__body slds-card__body_inner">
+			<!-- Start account list -->
+			<template if:true={accounts.data}>
+
+				<lightning-input type="search"
+					onchange={handleSearchTermChange}
+					variant="label-hidden"
+					class="slds-var-m-bottom_small"
+					label="Search"
+					placeholder="Search for accounts"
+					value={searchTerm}>
+				</lightning-input>
+
+				<lightning-layout multiple-rows="true" pull-to-boundary="small">
+					<template for:each={accounts.data} for:item="account">
+						<lightning-layout-item key={account.Id} padding="around-small" size="12" small-device-size="6"
+                                                   medium-device-size="4" large-device-size="3">
+
+							<c-account-tile account={account} selected-account-id={selectedAccountId}
+								onaccountselect={updateSelectedTile}></c-account-tile>
+								
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+				<!-- No accounts found -->
+				<template if:false={hasResults}>
+					<div class="slds-align_absolute-center slds-var-m-vertical_small">
+						We didn't find results...
+					</div>
+				</template>
+			</template>
+			<!-- End account list -->
+			<!-- Data failed to load -->
+			<template if:true={accounts.error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the account list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
