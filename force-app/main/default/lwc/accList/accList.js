@@ -11,12 +11,14 @@ export default class AccList extends LightningElement {
     accounts;
     error;
 
+    value = '';
+
     @wire(getPicklistValues, {
         recordTypeId: '012000000000000AAA',
         fieldApiName: TYPE_FIELD
     })
     picklistValues;
-    
+
     handleChange(event) {
         this.value = event.detail.value;
     }
